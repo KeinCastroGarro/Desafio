@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+   
+    <title>Encriptador</title>
+</head>
+<body>
+    <div class="caja">
+
+<div class="logo">
+    <img  class="logoimg" src="alura.webp"  alt="Logo Alura latam">
+    <h1 class="titulo">Desafio Encriptador</h1>
+</div>
+
+<div class="izquierda">
+ <input id=cajadetexto type="text" placeholder="Digite el texto">
+</div>
+
+
+    <div class="derecha">
+    <img id=fondoimg src="fondo2.png" alt="Niño con una lupa"> 
+        <h1 id="texto">Ningun mensaje encontrado</h1>
+        <textarea id="texto2" name="name" rows="8" cols="80">Ingrese el texto</textarea>
+        <button type="button" id="btcopiar" onclick="Copiar()">Copiar</button>
+        
+    </div>
+        
+    <div class="boton1">
+      <center> <p id="regla"> Solo letras minusculas y sin acentos </p></center> 
+        <button type="button" id="btnencriptar" onclick="Encriptar()">Encriptar</button>
+        <button type="button" id="btndesencriptar" onclick="desencriptar() ">Desencriptar</button>
+    </div>
+    </div>
+    <script>
+function Encriptar(){
+    var texto= document.getElementById("cajadetexto").value.toLowerCase();
+    var txtcifrado= texto.replace(/e/igm,"enter");
+    var txtcifrado= txtcifrado.replace(/o/igm,"ober");
+    var txtcifrado= txtcifrado.replace(/i/igm,"imes");
+    var txtcifrado= txtcifrado.replace(/a/igm,"ai");
+    var txtcifrado= txtcifrado.replace(/u/igm,"ufat");
+   
+    document.getElementById("fondoimg").style.display= "none";
+    document.getElementById("texto").style.display= "none";
+    document.getElementById("texto2").innerHTML=txtcifrado;
+    document.getElementById("btcopiar").style.display="show";
+    document.getElementById("btcopiar").style.display="inherit";
+   
+   
+           }
+   
+           function desencriptar() {
+   
+   var texto= document.getElementById("cajadetexto").value.toLowerCase();
+    var txtcifrado= texto.replace(/enter/igm,"e");
+    var txtcifrado= txtcifrado.replace(/ober/igm,"o");
+    var txtcifrado= txtcifrado.replace(/imes/igm,"i");
+    var txtcifrado= txtcifrado.replace(/ai/igm,"a");
+    var txtcifrado= txtcifrado.replace(/ufat/igm,"u");
+   
+    document.getElementById("fondoimg").style.display="none";
+    document.getElementById("texto").style.display="none";
+    document.getElementById("texto2").innerHTML=txtcifrado;
+    document.getElementById("btcopiar").style.display="show";
+    document.getElementById("btcopiar").style.display="inherit";
+   
+   
+           }
+   
+   
+           function Copiar(){
+               var contenido= document.querySelector("#texto2");
+               contenido.select();
+             document.execCommand("copy");
+             //      alert("se copio");
+           }
+    </script>
+    
+</body>
+</html>
